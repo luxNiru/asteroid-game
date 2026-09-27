@@ -7,15 +7,18 @@ from player import Player
 from asteroid import Asteroid
 from logger import log_event, log_state
 from asteroidfield import AsteroidField
+from shot import Shot
 
 def main():
     pygame.init()
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    shots = pygame.sprite.Group()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = (updatable)
+    Shot.containers = (shots, updatable, drawable)
     asteroid_field = AsteroidField()
     Player.containers = (updatable, drawable)
     player_icon = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
